@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from config.paths_config import TRAIN_DATA_PATH, ARTIFACTS_DIR
+from config.paths_config import *
 from src.logger import get_logger
 from src.custom_exception import CustomException
 import sys
@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 class DataProcessor:
     def __init__(self):
         self.train_data_path = TRAIN_DATA_PATH
-        self.processed_data_path = os.path.join(ARTIFACTS_DIR, "processed_data", "processed_train.csv")
+        self.processed_data_path = PROCESSED_DATA_PATH
 
     def load_data(self):
         try:

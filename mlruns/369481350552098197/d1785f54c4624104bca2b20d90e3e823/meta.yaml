@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MLOPS%20FINAL/mlruns/369481350552098197/d1785f54c4624104bca2b20d90e3e823/artifacts
+end_time: 1733117209823
+entry_point_name: ''
+experiment_id: '369481350552098197'
+lifecycle_stage: active
+run_id: d1785f54c4624104bca2b20d90e3e823
+run_name: auspicious-ray-220
+run_uuid: d1785f54c4624104bca2b20d90e3e823
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733117098731
+status: 3
+tags: []
+user_id: gusai

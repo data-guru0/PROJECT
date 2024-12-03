@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import mutual_info_classif
 from src.logger import get_logger
 from src.custom_exception import CustomException
-from config.paths_config import ARTIFACTS_DIR
+from config.paths_config import *
 from utils.helpers import label_encode
 
 # Setting up logger
@@ -12,7 +12,7 @@ logger = get_logger(__name__)
 
 class FeatureEngineer:
     def __init__(self):
-        self.data_path = os.path.join(ARTIFACTS_DIR, "processed_data", "processed_train.csv")
+        self.data_path = PROCESSED_DATA_PATH
         self.df = None
         self.label_mappings = {}
 
@@ -91,11 +91,9 @@ class FeatureEngineer:
     # Method to save the processed data
     def save_processed_data(self):
         try:
-            output_dir = os.path.join(ARTIFACTS_DIR, "enginnered_data")
-            os.makedirs(output_dir, exist_ok=True)
-            output_path = os.path.join(output_dir, "final_df.csv")
-            self.df.to_csv(output_path, index=False)
-            logger.info(f"Final dataframe saved at {output_path}")
+            os.makedirs(ENGINNERED_DIR, exist_ok=True)
+            self.df.to_csv(ENGINNERED_DATA, index=False)
+            logger.info(f"Final dataframe saved at {ENGINNERED_DATA}")
         except Exception as e:
             logger.error(f"Error while saving processed data: {e}")
             raise CustomException("Error while saving processed data", e)

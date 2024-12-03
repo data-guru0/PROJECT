@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MLOPS%20FINAL/mlruns/369481350552098197/42a44f95988247e0b98e666b1652ead3/artifacts
+end_time: 1733116018342
+entry_point_name: ''
+experiment_id: '369481350552098197'
+lifecycle_stage: active
+run_id: 42a44f95988247e0b98e666b1652ead3
+run_name: fun-rook-543
+run_uuid: 42a44f95988247e0b98e666b1652ead3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733115905426
+status: 4
+tags: []
+user_id: gusai
