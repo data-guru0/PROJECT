@@ -11,5 +11,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Installing packages') {
+            steps {
+                // Installing Pacakages
+                script {
+                    echo 'Installing packages'
+                    sh "python -m pip install --break-system-packages -e ."
+                }
+            }
+        }
+
     }
 }
