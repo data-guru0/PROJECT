@@ -1,0 +1,19 @@
+2024-12-02 10:45:53,424 - INFO - Loading data from ./artifacts\engineered_data\final_df.csv
+2024-12-02 10:45:53,584 - INFO - Data loaded successfully
+2024-12-02 10:45:53,615 - INFO - Data split into training and testing sets
+2024-12-02 10:45:53,639 - INFO - Loaded hyperparameters: {'learning_rate': [0.01, 0.05, 0.1], 'n_estimators': [100, 200, 300], 'max_depth': [5, 10, 15]}
+2024-12-02 10:45:53,647 - INFO - Starting model training with hyperparameter tuning
+2024-12-02 10:47:36,606 - INFO - Model training completed
+2024-12-02 10:47:36,606 - INFO - Best parameters from tuning: {'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 200}
+2024-12-02 10:47:36,606 - ERROR - An unexpected error occurred during the training process
+2024-12-02 10:54:58,792 - INFO - Loading data from ./artifacts\engineered_data\final_df.csv
+2024-12-02 10:54:58,888 - INFO - Data loaded successfully
+2024-12-02 10:54:58,892 - INFO - Data split into training and testing sets
+2024-12-02 10:54:58,892 - INFO - Loaded hyperparameters: {'learning_rate': [0.01, 0.05, 0.1], 'n_estimators': [100, 200, 300], 'max_depth': [5, 10, 15]}
+2024-12-02 10:54:58,905 - INFO - Starting model training with hyperparameter tuning
+2024-12-02 10:56:37,926 - INFO - Model training completed
+2024-12-02 10:56:37,926 - INFO - Best parameters from tuning: {'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 200}
+2024-12-02 10:56:37,942 - INFO - Evaluating the model
+2024-12-02 10:56:37,973 - INFO - Evaluation metrics: {'accuracy': 0.9421417797888386, 'precision': np.float64(0.9422589699710564), 'recall': np.float64(0.9421417797888386), 'f1_score': np.float64(0.942012521754656), 'confusion_matrix': [[9104, 364], [595, 6512]]}
+2024-12-02 10:56:37,973 - INFO - Saving model to ./artifacts\models\trained_model.pkl
+2024-12-02 10:56:37,989 - INFO - Model saved successfully

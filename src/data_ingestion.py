@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from src.logger import get_logger
 from src.custom_exception import CustomException
-from config.paths_config import RAW_DATA_PATH, INGESTED_DATA_DIR, TRAIN_DATA_PATH, TEST_DATA_PATH
+from config.paths_config import *
 
 
 logger = get_logger(__name__)

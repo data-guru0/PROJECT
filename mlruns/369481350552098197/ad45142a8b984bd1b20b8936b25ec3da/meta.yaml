@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MLOPS%20FINAL/mlruns/369481350552098197/ad45142a8b984bd1b20b8936b25ec3da/artifacts
+end_time: 1733977971242
+entry_point_name: ''
+experiment_id: '369481350552098197'
+lifecycle_stage: active
+run_id: ad45142a8b984bd1b20b8936b25ec3da
+run_name: legendary-boar-694
+run_uuid: ad45142a8b984bd1b20b8936b25ec3da
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733977877359
+status: 3
+tags: []
+user_id: gusai

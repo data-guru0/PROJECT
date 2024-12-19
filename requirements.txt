@@ -8,3 +8,5 @@ xgboost
 torch
 tensorboard
 mlflow
+dvc
+flask
