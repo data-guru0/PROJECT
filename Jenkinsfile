@@ -52,16 +52,6 @@ pipeline {
             }
         }
 
-        stage('App running') {
-            steps {
-                script {
-                    echo 'Running training pipeline in virtual environment'
-                    sh '''
-                        . ${VENV_DIR}/bin/activate
-                        python application.py
-                    '''
-                }
-            }
-        }
+        
     }
 }
