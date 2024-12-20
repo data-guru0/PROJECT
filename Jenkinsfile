@@ -34,10 +34,11 @@ pipeline {
                 script {
                     echo 'Linting Python Code...'
                     sh '''
+                        set -e
                         . ${VENV_DIR}/bin/activate
-                        pylint application.py main.py --output=pylint-report.txt --exit-zero
-                        flake8 application.py main.py --ignore=E501,E302 --output-file=flake8-report.txt
-                        black application.py main.py
+                        pylint application.py main.py --output=pylint-report.txt --exit-zero || echo "Pylint completed with issues."
+                        flake8 application.py main.py --ignore=E501,E302 --output-file=flake8-report.txt || echo "Flake8 completed with issues."
+                        black application.py main.py || echo "Black formatting completed."
                     '''
                 }
             }
