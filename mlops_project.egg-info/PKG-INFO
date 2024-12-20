@@ -7,13 +7,13 @@ Author-email: your.email@example.com
 Requires-Python: >=3.7
 Requires-Dist: numpy
 Requires-Dist: pandas
-Requires-Dist: mysql-connector-python
 Requires-Dist: scikit-learn
 Requires-Dist: setuptools
 Requires-Dist: lightgbm
 Requires-Dist: xgboost
-Requires-Dist: torch
-Requires-Dist: tensorboard
 Requires-Dist: mlflow
 Requires-Dist: dvc
 Requires-Dist: flask
+Requires-Dist: pylint
+Requires-Dist: flake8
+Requires-Dist: black

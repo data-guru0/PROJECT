@@ -28,30 +28,16 @@ pipeline {
             }
         }
 
-        stage('Installing Packages') {
+        stage('Linting Code') {
             steps {
                 script {
-                    echo 'Installing packages in virtual environment'
-                    sh '''
-                        . ${VENV_DIR}/bin/activate
-                        pip install -e .
-                    '''
+                    echo 'Linting Python Code...'
+                    sh "python -m pip install --break-system-packages -e ."
+                    sh "pylint application.py main.py --output=pylint-report.txt --exit-zero"
+                    sh "flake8 application.py main.py --ignore=E501,E302 --output-file=flake8-report.txt"
+                    sh "black application.py main.py"
                 }
             }
-        }
-
-        stage('Training Pipeline') {
-            steps {
-                script {
-                    echo 'Running training pipeline in virtual environment'
-                    sh '''
-                        . ${VENV_DIR}/bin/activate
-                        python main.py
-                    '''
-                }
-            }
-        }
-
-        
+        }     
     }
 }
