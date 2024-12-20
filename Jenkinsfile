@@ -20,13 +20,8 @@ pipeline {
                 script {
                     echo 'Setting up virtual environment'
                     sh '''
-                        # Create a virtual environment
                         python -m venv ${VENV_DIR}
-                        
-                        # Activate the virtual environment
-                        source ${VENV_DIR}/bin/activate
-
-                        # Upgrade pip in the virtual environment
+                        . ${VENV_DIR}/bin/activate
                         pip install --upgrade pip
                     '''
                 }
@@ -38,10 +33,7 @@ pipeline {
                 script {
                     echo 'Installing packages in virtual environment'
                     sh '''
-                        # Activate the virtual environment
-                        source ${VENV_DIR}/bin/activate
-                        
-                        # Install required packages
+                        . ${VENV_DIR}/bin/activate
                         pip install -e .
                         pip install dvc
                     '''
@@ -54,10 +46,7 @@ pipeline {
                 script {
                     echo 'Running training pipeline in virtual environment'
                     sh '''
-                        # Activate the virtual environment
-                        source ${VENV_DIR}/bin/activate
-                        
-                        # Run DVC commands
+                        . ${VENV_DIR}/bin/activate
                         dvc repro
                     '''
                 }
