@@ -23,6 +23,7 @@ pipeline {
                         python -m venv ${VENV_DIR}
                         . ${VENV_DIR}/bin/activate
                         pip install --upgrade pip
+                        pip install -e .
                     '''
                 }
             }
@@ -32,10 +33,12 @@ pipeline {
             steps {
                 script {
                     echo 'Linting Python Code...'
-                    sh "python -m pip install --break-system-packages -e ."
-                    sh "pylint application.py main.py --output=pylint-report.txt --exit-zero"
-                    sh "flake8 application.py main.py --ignore=E501,E302 --output-file=flake8-report.txt"
-                    sh "black application.py main.py"
+                    sh '''
+                        . ${VENV_DIR}/bin/activate
+                        pylint application.py main.py --output=pylint-report.txt --exit-zero
+                        flake8 application.py main.py --ignore=E501,E302 --output-file=flake8-report.txt
+                        black application.py main.py
+                    '''
                 }
             }
         }     
