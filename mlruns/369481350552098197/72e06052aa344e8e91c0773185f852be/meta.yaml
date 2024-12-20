@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MLOPS%20FINAL/mlruns/369481350552098197/72e06052aa344e8e91c0773185f852be/artifacts
+end_time: 1734671253886
+entry_point_name: ''
+experiment_id: '369481350552098197'
+lifecycle_stage: active
+run_id: 72e06052aa344e8e91c0773185f852be
+run_name: mysterious-flea-187
+run_uuid: 72e06052aa344e8e91c0773185f852be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734671158490
+status: 3
+tags: []
+user_id: gusai

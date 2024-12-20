@@ -1,0 +1,78 @@
+2024-12-20 10:35:55,194 - INFO - DataIngestion initialized.
+2024-12-20 10:35:55,194 - INFO - Directory created or already exists: ./artifacts\ingested_data
+2024-12-20 10:35:55,401 - INFO - Raw data successfully loaded.
+2024-12-20 10:35:55,432 - INFO - Data successfully split into train and test sets.
+2024-12-20 10:35:55,859 - INFO - Training data saved to ./artifacts\ingested_data\train.csv
+2024-12-20 10:35:55,965 - INFO - Testing data saved to ./artifacts\ingested_data\test.csv
+2024-12-20 10:35:56,143 - INFO - Train Data: 82875 rows and 25 columns.
+2024-12-20 10:35:56,205 - INFO - Test Data: 20719 rows and 25 columns.
+2024-12-20 10:35:56,215 - INFO - Starting the data processing pipeline.
+2024-12-20 10:35:56,215 - INFO - Loading data from: ./artifacts\ingested_data\train.csv
+2024-12-20 10:35:56,350 - INFO - Data loaded successfully. Shape: (82875, 25)
+2024-12-20 10:35:56,350 - INFO - Dropping columns: ['MyUnknownColumn', 'id']
+2024-12-20 10:35:56,364 - INFO - Columns dropped successfully. Shape: (82875, 23)
+2024-12-20 10:35:56,366 - INFO - Handling outliers for columns: ['Flight Distance', 'Departure Delay in Minutes', 'Arrival Delay in Minutes', 'Checkin service']
+2024-12-20 10:35:56,393 - INFO - Outliers handled successfully.
+2024-12-20 10:35:56,394 - INFO - Handling null values for column: Arrival Delay in Minutes using strategy: median
+2024-12-20 10:35:56,395 - INFO - Null values in column 'Arrival Delay in Minutes' filled with median.
+2024-12-20 10:35:56,769 - INFO - Processed data saved at: ./artifacts\processed_data\processed_train.csv
+2024-12-20 10:35:56,769 - INFO - Data processing pipeline completed successfully.
+2024-12-20 10:35:56,769 - INFO - End of data processing pipeline
+2024-12-20 10:35:56,769 - INFO - Starting the feature engineering process.
+2024-12-20 10:35:56,769 - INFO - Loading data from ./artifacts\processed_data\processed_train.csv
+2024-12-20 10:35:56,915 - INFO - Data loaded successfully with shape: (82875, 23)
+2024-12-20 10:35:56,915 - INFO - Performing feature construction.
+2024-12-20 10:35:56,915 - INFO - Feature construction completed successfully.
+2024-12-20 10:35:56,915 - INFO - Binning Age values.
+2024-12-20 10:35:56,915 - INFO - Age binning completed successfully.
+2024-12-20 10:35:56,915 - INFO - Performing label encoding for columns: ['Gender', 'Customer Type', 'Type of Travel', 'Class', 'satisfaction', 'Age Group']
+2024-12-20 10:35:56,979 - INFO - Mapping for Gender: {'Female': np.int64(0), 'Male': np.int64(1)}
+2024-12-20 10:35:56,979 - INFO - Mapping for Customer Type: {'Loyal Customer': np.int64(0), 'disloyal Customer': np.int64(1)}
+2024-12-20 10:35:56,979 - INFO - Mapping for Type of Travel: {'Business travel': np.int64(0), 'Personal Travel': np.int64(1)}
+2024-12-20 10:35:56,979 - INFO - Mapping for Class: {'Business': np.int64(0), 'Eco': np.int64(1), 'Eco Plus': np.int64(2)}
+2024-12-20 10:35:56,979 - INFO - Mapping for satisfaction: {'neutral or dissatisfied': np.int64(0), 'satisfied': np.int64(1)}
+2024-12-20 10:35:56,979 - INFO - Mapping for Age Group: {'Adult': np.int64(0), 'Child': np.int64(1), 'Senior': np.int64(2), 'Youngster': np.int64(3)}
+2024-12-20 10:35:56,979 - INFO - Label encoding completed successfully.
+2024-12-20 10:35:56,979 - INFO - Performing feature selection using Mutual Information.
+2024-12-20 10:35:57,293 - INFO - Mutual Information: 
+                              Feature  Mutual Information
+11                    Online boarding            0.210781
+23                        Delay Ratio            0.202477
+6               Inflight wifi service            0.161651
+4                               Class            0.134126
+3                      Type of Travel            0.113843
+13             Inflight entertainment            0.094464
+5                     Flight Distance            0.089627
+12                       Seat comfort            0.079912
+15                   Leg room service            0.060933
+14                   On-board service            0.057418
+19                        Cleanliness            0.052649
+8              Ease of Online booking            0.051334
+2                                 Age            0.047422
+16                   Baggage handling            0.041933
+18                   Inflight service            0.040663
+17                    Checkin service            0.033162
+10                     Food and drink            0.027606
+24                          Age Group            0.022313
+1                       Customer Type            0.018396
+9                       Gate location            0.012063
+21           Arrival Delay in Minutes            0.007386
+22                        Total Delay            0.005992
+20         Departure Delay in Minutes            0.003289
+7   Departure/Arrival time convenient            0.001867
+0                              Gender            0.000068
+2024-12-20 10:35:57,304 - INFO - Final selected features: ['Online boarding', 'Delay Ratio', 'Inflight wifi service', 'Class', 'Type of Travel', 'Inflight entertainment', 'Flight Distance', 'Seat comfort', 'Leg room service', 'On-board service', 'Cleanliness', 'Ease of Online booking']
+2024-12-20 10:35:57,546 - INFO - Final dataframe saved at ./artifacts\engineered_data\final_df.csv
+2024-12-20 10:35:57,546 - INFO - Feature engineering pipeline completed successfully.
+2024-12-20 10:35:57,546 - INFO - End of feature engineering pipeline.
+2024-12-20 10:35:58,556 - INFO - Loading data from ./artifacts\engineered_data\final_df.csv
+2024-12-20 10:35:58,672 - INFO - Data loaded successfully
+2024-12-20 10:35:58,690 - INFO - Data split into training and testing sets
+2024-12-20 10:35:58,706 - INFO - Loaded hyperparameters: {'learning_rate': [0.01, 0.05, 0.1], 'n_estimators': [100, 200, 300], 'max_depth': [5, 10, 15]}
+2024-12-20 10:35:58,716 - INFO - Starting model training with hyperparameter tuning
+2024-12-20 10:37:23,421 - INFO - Model training completed
+2024-12-20 10:37:23,421 - INFO - Best parameters from tuning: {'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 200}
+2024-12-20 10:37:23,436 - INFO - Evaluating the model
+2024-12-20 10:37:23,468 - INFO - Evaluation metrics: {'accuracy': 0.9421417797888386, 'precision': np.float64(0.9422589699710564), 'recall': np.float64(0.9421417797888386), 'f1_score': np.float64(0.942012521754656), 'confusion_matrix': [[9104, 364], [595, 6512]]}
+2024-12-20 10:37:23,468 - INFO - Saving model to ./artifacts\models\trained_model.pkl
+2024-12-20 10:37:23,468 - INFO - Model saved successfully

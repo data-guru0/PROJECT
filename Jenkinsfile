@@ -35,7 +35,6 @@ pipeline {
                     sh '''
                         . ${VENV_DIR}/bin/activate
                         pip install -e .
-                        pip install dvc
                     '''
                 }
             }
@@ -47,7 +46,7 @@ pipeline {
                     echo 'Running training pipeline in virtual environment'
                     sh '''
                         . ${VENV_DIR}/bin/activate
-                        dvc repro
+                        python main.py
                     '''
                 }
             }
