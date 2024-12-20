@@ -22,5 +22,15 @@ pipeline {
             }
         }
 
+        stage('Trainining pipeline') {
+            steps {
+                // Installing Pacakages
+                script {
+                    echo 'Trainining pipeline'
+                    sh "dvc repro"
+                }
+            }
+        }
+
     }
 }
