@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Train the model before running the application
-RUN dvc repro
+RUN python main.py
 
 # Expose the port that Flask will run on
 EXPOSE 5000
