@@ -3,6 +3,9 @@ pipeline {
 
     environment {
         VENV_DIR = 'venv' // Directory for the virtual environment
+        DOCKERHUB_CREDENTIAL_ID = 'mlops-project'
+        DOCKERHUB_REGISTRY = 'https://registry.hub.docker.com'
+        DOCKERHUB_REPOSITORY = 'dataguru97/mlops-project'
     }
 
     stages {
@@ -59,7 +62,7 @@ pipeline {
                 // Trivy Filesystem Scan
                 script {
                     echo 'Build Docker image...'
-                    docker.build("mlops")
+                    dockerImage = docker.build("${DOCKERHUB_REPOSITORY}:latest") 
                 }
             }
         }
@@ -69,7 +72,19 @@ pipeline {
                 // Trivy Docker Image Scan
                 script {
                     echo 'Scanning Docker Image with Trivy...'
-                    sh "trivy image mlops:latest --format table -o trivy-image-report.html"
+                    sh "trivy image ${DOCKERHUB_REPOSITORY}:latest --format table -o trivy-image-report.html"
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                // Push Docker Image to DockerHub
+                script {
+                    echo 'Pushing Docker Image to DockerHub...'
+                    docker.withRegistry("${DOCKERHUB_REGISTRY}", "${DOCKERHUB_CREDENTIAL_ID}"){
+                        dockerImage.push('latest')
+                    }
                 }
             }
         }     
