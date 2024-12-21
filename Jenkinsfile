@@ -52,6 +52,16 @@ pipeline {
                     sh "trivy fs ./ --format table -o trivy-fs-report.html"
                 }
             }
+        }  
+
+        stage('Build Docker image') {
+            steps {
+                // Trivy Filesystem Scan
+                script {
+                    echo 'Build Docker image...'
+                    docker.build("mlops")
+                }
+            }
         }     
     }
 }
